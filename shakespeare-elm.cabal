@@ -1,0 +1,30 @@
+name:                shakespeare-elm
+version:             0.1.0.0
+synopsis:            Use Elm inside Shakespeare's runtime
+description:         Please see README.md
+homepage:            https://github.com/tolgap/shakespeare-elm#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Tolga Paksoy
+maintainer:          tolga@paramander.com
+copyright:           2017 Tolga Paksoy
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Text.Elm
+  build-depends:       base             >= 4.7 && < 5
+                     , shakespeare      >= 2.0 && < 2.1
+                     , containers
+                     , template-haskell >= 2.7
+                     , ghc-prim
+                     , directory        >= 1.2
+                     , unix             >= 2.0
+                     , transformers
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/tolgap/shakespeare-elm
