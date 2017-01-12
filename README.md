@@ -11,10 +11,17 @@ First we need to make Yesod aware that Elm is a thing.
 
 When scaffolding a new Yesod project, a file `Settings.hs` is generated.
 
-Replace `widgetFileSettings = def` with the following:
+Replace `widgetFileSettings = def` with the following, and add the imports as well:
 
 ```hs
 import qualified Text.Elm
+import Yesod.Default.Util ( WidgetFileSettings
+                          , TemplateLanguage (TemplateLanguage)
+                          , widgetFileNoReload
+                          , widgetFileReload
+                          , wfsLanguages
+                          , defaultTemplateLanguages
+                          )
 
 {- some lines ... -}
 
