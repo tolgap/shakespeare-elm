@@ -6,6 +6,7 @@ module Text.Elm
       elm
     , elmFile
     , elmFileReload
+    , forceElmFileReload
     ) where
 
 import System.Posix.Files (touchFile)
@@ -43,8 +44,10 @@ elmFile fp = do
 
 elmFileReload :: FilePath -> Q Exp
 elmFileReload fp = do
-    -- HACK: this sets the modified time of the Elm file so shakespeare's runtime
-    -- will force reload it, in case dependencies have been edited.
-    runIO $ touchFile fp
     rs <- elmSettings
     shakespeareFileReload rs fp
+
+
+forceElmFileReload :: FilePath -> IO ()
+forceElmFileReload =
+    touchFile
